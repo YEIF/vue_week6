@@ -40,12 +40,14 @@
           </tr>
         </tbody>
         </table>
+        <pagination-componet :pages="pagination" @change-pages="getProducts"></pagination-componet>
       </div>
   </div>
 </template>
 
 <script>
 import emitter from '@/libs/emitter'
+import PaginationComponet from '@/components/PaginationComponet.vue'
 export default {
   data () {
     return {
@@ -57,8 +59,10 @@ export default {
       }
     }
   },
+  components: {
+    PaginationComponet
+  },
   methods: {
-
     getProducts (page = 1) {
       // console.log(this.$http)
       this.$http.get(
@@ -67,7 +71,7 @@ export default {
         this.products = res.data.products
         this.pagination = res.data.pagination
       }).catch(err => {
-        console.dir(err.data)
+        console.dir(err)
       })
     },
     addToCart (id, qty = 1) {

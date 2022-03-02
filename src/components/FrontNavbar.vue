@@ -30,8 +30,10 @@
 
       <router-link to="/cart" class="btn btn-primary position-relative">
         結帳
-         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        {{carts.carts?.length}}
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          {{ carts.carts?.length }}
         </span>
       </router-link>
     </div>
@@ -49,7 +51,8 @@ export default {
   methods: {
     getCarts () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/`
-      this.$http.get(url)
+      this.$http
+        .get(url)
         .then((res) => {
           this.carts = res.data.data
         })

@@ -55,7 +55,6 @@
       </tr>
     </tfoot>
   </table>
-
       <div class="my-5 row justify-content-center">
         <VForm ref="form" class="col-md-6" v-slot="{ errors }" @submit="sendOrder">
           <div class="mb-3">
